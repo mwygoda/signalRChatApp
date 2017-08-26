@@ -1,0 +1,11 @@
+/Users/mw/Projects/chat/bin/Debug/netcoreapp2.0/chat.deps.json
+/Users/mw/Projects/chat/bin/Debug/netcoreapp2.0/chat.runtimeconfig.json
+/Users/mw/Projects/chat/bin/Debug/netcoreapp2.0/chat.runtimeconfig.dev.json
+/Users/mw/Projects/chat/bin/Debug/netcoreapp2.0/chat.dll
+/Users/mw/Projects/chat/bin/Debug/netcoreapp2.0/chat.pdb
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.csprojResolveAssemblyReference.cache
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.csproj.CoreCompileInputs.cache
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.AssemblyInfoInputs.cache
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.AssemblyInfo.cs
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.dll
+/Users/mw/Projects/chat/obj/Debug/netcoreapp2.0/chat.pdb

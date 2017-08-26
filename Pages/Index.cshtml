@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div style="margin-top: 20px" class="container">
+    <div class="row">
+		<div class="form-inline" id="name-form">
+            <label class="control-label" for="nick">Type your name:</label>
+            <input class="form-control" type="text" id="nick" />
+            <button class="btn btn-primary" onclick="goChat()">Let's chat!</button>
+        </div>
+		<div style="display: none" id="chat">
+			<h2 id="user-name"></h2>
+            <form class="form-inline" id="form-send" action="#">
+                <label class="control-label" for="message">Message:</label>
+                <input type="text" class="form-control" id="message" />
+                <button class="btn btn-primary" type="submit" id="send">Send</button>
+            </form>
+            <ul id="messages"></ul>
+        </div>
+	</div>
+</div>
+
+<script src="js/signalr-client.js"></script>
+
+<script>
+    const transportType = signalR.TransportType.WebSockets;
+    const http = new signalR.HttpConnection(`http://${document.location.host}/chat`, { transport: transportType });
+    const connection = new signalR.HubConnection(http);
+    connection.start();
+    connection.on('Send', (name, message) => {
+        appendLine(name, message);
+    });
+	
+    document.getElementById('form-send').addEventListener('submit', event => {
+        let message = $('#message').val();
+	    let name = $('#user-name').text();
+        $('#message').val('');
+        connection.invoke('Send', name, message);
+        event.preventDefault();
+    });
+	
+    function appendLine(name, message) {
+	    let msg = name +': ' + message;
+        let li = document.createElement('li');
+        li.innerText = msg;
+        document.getElementById('messages').appendChild(li);
+    };
+
+	function goChat(){
+	 let name = $('#nick').val();
+	 $('#user-name').text(name);
+	 $('#name-form').hide();
+	 $('#chat').show();
+	};
+</script>
